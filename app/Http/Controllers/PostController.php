@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -20,9 +20,23 @@ class PostController extends Controller
  * @params Object Post // 引数の$postはid=1のPostインスタンス
  * @return Reposnse post view
  */
-	public function show(Post $post) //web.phpに記述したURLの{}内の文字（今回はpost）とコントローラーの変数（今回は$post）は一致させる。
+ 	public function show(Post $post) //web.phpに記述したURLの{}内の文字（今回はpost）とコントローラーの変数（今回は$post）は一致させる。
 	{
 		return view('posts.show')->with(['post'=>$post]);
 		//'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
 	}
+	
+    public function create()
+    {
+    	return view('posts.create');
+    }
+    
+public function store(PostRequest $request, Post $post)
+    {
+    	$input = $request['post']; //postはcreate.blade.php内のFormタグのname属性と一致。
+    	$post ->fill($input) ->save(); //Postインスタンスを上書き。fill使用によりタイトルと内容
+    	return redirect('/posts/' . $post ->id);  //投稿済ブログにリダイレクト
+    }
+    
+
 }
