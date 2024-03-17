@@ -15,5 +15,7 @@ use App\Http\Controllers\PostController; //外部のPostControllerクラス>を�
 */
 
 Route::get('/', [PostController::class, 'index']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
+//'posts/{対象の投稿のID}'にGETリクエストが来たら、PostControllerのshowメソッドを実行する。
 
 
