@@ -19,5 +19,9 @@ Route::get('/posts/create', [PostController::class, 'create']);
 //「/posts/create」は「/posts/{post}」よりも上に書く！
 Route::post('/posts', [PostController::class, 'store']);
 //DBへの登録
+Route::get('posts/{post}/edit', [PostController::class, 'edit']);
+//投稿の内容編集画面へのルーティング
+Route::put('posts/{post}', [PostController::class, 'update']);
+//編集内容を反映
 Route::get('/posts/{post}', [PostController::class, 'show']);
 //'posts/{対象の投稿のID}'にGETリクエストが来たら、PostControllerのshowメソッドを実行する。

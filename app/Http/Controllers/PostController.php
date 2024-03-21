@@ -37,6 +37,17 @@ public function store(PostRequest $request, Post $post)
     	$post ->fill($input) ->save(); //Postインスタンスを上書き。fill使用によりタイトルと内容
     	return redirect('/posts/' . $post ->id);  //投稿済ブログにリダイレクト
     }
+
+public function edit(Post $post)
+    {
+    	return view('posts.edit')->with(['post'=>$post]);
+    }
     
+public function update(PostRequest $request, Post $post)
+    {
+    	$input_post = $request['post']; //postはcreate.blade.php内のFormタグのname属性と一致。
+    	$post ->fill($input_post)->save(); //Postインスタンス上書き
+    	return redirect('/posts/' . $post ->id);
+    }
 
 }
