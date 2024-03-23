@@ -23,5 +23,7 @@ Route::get('posts/{post}/edit', [PostController::class, 'edit']);
 //投稿の内容編集画面へのルーティング
 Route::put('posts/{post}', [PostController::class, 'update']);
 //編集内容を反映
+Route::delete('/posts/{post}', [PostController::class, 'delete']);
+//投稿を削除
 Route::get('/posts/{post}', [PostController::class, 'show']);
 //'posts/{対象の投稿のID}'にGETリクエストが来たら、PostControllerのshowメソッドを実行する。
