@@ -19,7 +19,7 @@ class PostSeeder extends Seeder
         // DB::table('テーブル名')->insert(['カラム名' => 'データ' ] );
         // use Illuminate\Support\Facades\DB;　を追記
         // use DateTime;　を追記
-        DB::table('posts2')->insert([
+        DB::table('posts')->insert([
             'title' => '命名の心得',
             'body' => '命名はデータを基準に考える',
             'created_at' => new DateTime(),

@@ -22,6 +22,14 @@ class Post extends Model
         'body',
     ];
     //PostControllerで使用したfill関数を使えるようにするため。
+    
+    /**Categoryに対するリレーション
+     * 「1対多」の関係なので単数形に
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }
 
