@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts2', function (Blueprint $table) {
-            //
-            $table->string('image', 100)->nullable();
-            //nullable()でnull値（記述無）を許容
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 50);
+            $table->string('body', 200);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts2', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('posts');
     }
 };
