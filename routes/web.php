@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController; //外部のPostControllerクラス>をインポート
+use App\Http\Controllers\PostController; //外部のPostControllerクラスをインポート
+use App\Http\Controllers\CategoryController; //外部のCategoryControllerクラスをインポート
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,10 @@ Route::put('posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'delete']);
 //投稿を削除
 Route::get('/posts/{post}', [PostController::class, 'show']);
-//'posts/{対象の投稿のID}'にGETリクエストが来たら、PostControllerのshowメソッドを実行する。
+/**'posts/{対象の投稿のID}'にGETリクエストが来たら、
+ * PostControllerのshowメソッドを実行する。
+ */
+Route::get('/categories/{category}', [CategoryController::class, 'index']);
+/**'categories/{対象のカテゴリー}'にGETリクエストが来たら、
+ * CategoryControllerのindexメソッドを実行する。
+ */

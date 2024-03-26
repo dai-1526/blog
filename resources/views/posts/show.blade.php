@@ -15,13 +15,15 @@
         <h1 class = "title">
             {{ $post -> title }}
         </h1>
+        <div class = "edit">
+            <a href="/posts/{{ $post->id }}/edit">edit</a>
+        </div>
         <div class = "content_post"> <!--contentは内容という意味-->
             <h3>本文</h3>
             <p>{{ $post -> body }}</p>
         </div>
-        <div class = "edit">
-            <a href="/posts/{{ $post->id }}/edit">edit</a>
-        </div>
+        <a href = "/categories/{{ $post->category_id }}">{{ $post->category->name }}</a>
+        
         <div class = "footer">
             <a href = "/">戻る</a>
         </div>
