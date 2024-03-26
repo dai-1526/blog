@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
-            $table->foreignID('category_ID')->constrained()->onDelete('cascade');
-            /**foreignIDはUNSIGNED BIGINTを作るメソッド
+            
+            $table->foreignID('category_id')->constrained()->onDelete('cascade');
+             /**foreignIDはUNSIGNED BIGINTを作るメソッド
              * すなわち、整数かつ大きな数字を許容させるための処理。
              * →元のID（カテゴリーテーブルのID）と共通させるため。
              * （laravel9の仕様でマイグレーションを使ってテーブルを

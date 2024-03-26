@@ -8,6 +8,16 @@
         <h1>Blog name</h1>
         <form action = "/posts" method = "POST">
             @csrf
+            <div class ="category">
+                <h2>カテゴリー</h2>
+                <select name = "post[category_id]">
+                    @foreach($categories as $category)
+                      <option value = "{{ $category->id }}">
+                          {{ $category->name }}
+                      </option>
+                    @endforeach
+                </select>
+            </div>
             <div class = "title">
                 <h2>タイトル</h2>
                 <input type = "text" name = "post[title]" placeholder = "タイトル" value = "{{old('post.title') }}"/>
@@ -22,7 +32,7 @@
                     {{ $errors ->first('post.body') }}
                 </p>
             </div>
-            <input type = "submit" value = "store"/>
+            <input type = "submit" value = "投稿"/>
         </form>
         <div class = "footer">
             <a href = "/">戻る</a>

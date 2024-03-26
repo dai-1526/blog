@@ -20,10 +20,11 @@ class PostSeeder extends Seeder
         // use Illuminate\Support\Facades\DB;　を追記
         // use DateTime;　を追記
         DB::table('posts')->insert([
-            'title' => '命名の心得',
-            'body' => '命名はデータを基準に考える',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-            ]);
+                'title' => '命名の心得',
+                'body' => '命名はデータを基準に考える',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+                'category_id'=> 1
+         ]);
     }
 }
